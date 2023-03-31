@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: stonesoup-pr-quota-controller
+  name: stonesoup-pr-quota-controller-monitor
+  namespace: pipelinerun-quota-controller
+spec:
+  endpoints:
+    - honorLabels: true
+      interval: 10s
+      port: http-metrics
+  jobLabel: app
+  namespaceSelector:
+    matchNames:
+      - pipelinerun-quota-controller
+  selector:
+    matchLabels:
+      app: stonesoup-pr-quota-controller

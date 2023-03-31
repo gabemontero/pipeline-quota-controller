@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: stonesoup-pr-quota-controller
+  name: stonesoup-pr-quota-controller-monitor
+  namespace: pipelinerun-quota-controller
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - name: http-metrics
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: probes
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+  selector:
+    app: stonesoup-pr-quota-controller
+  sessionAffinity: None
+  type: ClusterIP
