@@ -39,8 +39,8 @@ for memory limit initially.  Then, as the `ResourceQuota` around memory limits i
 for memory limit, but rise for cpu limit.  Each of the 5 `ResourceQuota` items were manually updated, relaxing the contraint,
 until we were able to max out the resources on nodes in the cluster
 
-![A 15 minute depiction of metrics as quota was manually updated to unbound the various mem/cpu constraints applied by quota](/home/gmontero/go/src/github.com/gabemontero/pipeline-quota-controller/ThrottleMetrics6metrics.png)
+![](ThrottleMetrics6metrics.png)
 
 In which case our exceeded node resources metric started increasing:
 
-!["When enough quota was relaxed, evidence that we could start maxing node resources on the cluster"](/home/gmontero/go/src/github.com/gabemontero/pipeline-quota-controller/ExceededNodeResourcesMetric.png )
+![](ExceededNodeResourcesMetric.png )
